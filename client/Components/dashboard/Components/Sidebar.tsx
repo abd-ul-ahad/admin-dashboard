@@ -3,6 +3,8 @@ import { FaHome, FaShoppingCart } from "react-icons/fa";
 import { RiAdminFill } from "react-icons/ri";
 import { BsFillPersonFill, BsNewspaper, BsGlobe } from "react-icons/bs";
 import { AiOutlineAreaChart } from "react-icons/ai";
+import type { RootState } from "@/store/index";
+import { useSelector } from "react-redux";
 
 export default function Sidebar({
   tabI,
@@ -11,6 +13,8 @@ export default function Sidebar({
   tabI: number;
   setTabI: React.Dispatch<React.SetStateAction<number>>;
 }) {
+  const user = useSelector((state: RootState) => state.user);
+
   const handleTabClick = (index: number) => {
     if (tabI !== index) {
       setTabI(index);
@@ -97,7 +101,7 @@ export default function Sidebar({
             }}
           />
           <div className="flex justify-center items-start flex-col">
-            <p className="text-sm">Abdul Ahad</p>
+            <p className="text-sm">{user.firstName}</p>
             <p className="text-xs">Admin</p>
           </div>
         </div>
