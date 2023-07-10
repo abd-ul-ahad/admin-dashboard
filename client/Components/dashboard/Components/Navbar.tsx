@@ -3,7 +3,7 @@ import { AiOutlineReload } from "react-icons/ai";
 
 const Navbar = () => {
   return (
-    <div className="flex justify-between items-center md:px-9 px-2 py-1">
+    <div className="flex justify-between items-center md:px-5 px-2 py-1">
       <div>
         <input
           type="search"

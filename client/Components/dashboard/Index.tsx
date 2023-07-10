@@ -1,8 +1,9 @@
 "use client";
+import { useState } from "react";
 import Navbar from "@/Components/dashboard/Components/Navbar";
 import Sidebar from "@/Components/dashboard/Components/Sidebar";
-import { useState } from "react";
 import Geography from "@/Components/dashboard/Components/Geography";
+import Overview from "./Components/Overview";
 
 export default function Dashboard() {
   const [tabI, setTabI] = useState<number>(
@@ -20,13 +21,20 @@ export default function Dashboard() {
   7 - Profile
   */
 
+  console.log(tabI);
+
   return (
     <div>
       <div className="flex">
         <Sidebar tabI={tabI} setTabI={setTabI} />
-        <div className="w-full">
+        <div
+          className="w-full pl-5"
+          style={{ borderLeft: "2px solid var(--background-secondary)" }}
+        >
           <Navbar />
-          <div>{tabI === 4 ? <Geography /> : null}</div>
+          <div>
+            {tabI === 4 ? <Geography /> : tabI === 6 ? <Overview /> : null}
+          </div>
         </div>
       </div>
     </div>

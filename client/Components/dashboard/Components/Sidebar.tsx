@@ -2,6 +2,7 @@ import Image from "next/image";
 import { FaHome, FaShoppingCart } from "react-icons/fa";
 import { RiAdminFill } from "react-icons/ri";
 import { BsFillPersonFill, BsNewspaper, BsGlobe } from "react-icons/bs";
+import { BiLineChart } from "react-icons/bi";
 import { AiOutlineAreaChart } from "react-icons/ai";
 import type { RootState } from "@/store/index";
 import { useSelector } from "react-redux";
@@ -43,7 +44,9 @@ export default function Sidebar({
           </div>
 
           <div className="flex justify-center items-start flex-col">
-            <p className="text-xs pl-2 pb-1 text-[var(--sidebar-line)]">Client Facing</p>
+            <p className="text-xs pl-2 pb-1 text-[var(--sidebar-line)]">
+              Client Facing
+            </p>
             <ul className="w-full">
               {clientFacing.map((e, i) => (
                 <li
@@ -61,14 +64,36 @@ export default function Sidebar({
             </ul>
           </div>
           <div className="flex justify-center items-start flex-col">
-            <p className="text-xs pl-2 pb-1 text-[var(--sidebar-line)]">Management</p>
+            <p className="text-xs pl-2 pb-1 text-[var(--sidebar-line)]">
+              Sales
+            </p>
             <ul className="w-full">
-              {management.map((e, i) => (
+              {sales?.map((e, i) => (
                 <li
                   key={i}
                   onClick={() => handleTabClick(i + 6)}
                   className={`flex justify-start py-2 pl-4 items-center space-x-4 ${
                     tabI === i + 6 &&
+                    "bg-[var(--background-tab)] text-[var(--sidebar-active-text)]"
+                  } w-full cursor-pointer`}
+                >
+                  {e.icon}
+                  <p>{e.title}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="flex justify-center items-start flex-col">
+            <p className="text-xs pl-2 pb-1 text-[var(--sidebar-line)]">
+              Management
+            </p>
+            <ul className="w-full">
+              {management?.map((e, i) => (
+                <li
+                  key={i}
+                  onClick={() => handleTabClick(i + 7)}
+                  className={`flex justify-start py-2 pl-4 items-center space-x-4 ${
+                    tabI === i + 7 &&
                     "bg-[var(--background-tab)] text-[var(--sidebar-active-text)]"
                   } w-full cursor-pointer`}
                 >
@@ -119,3 +144,4 @@ const management = [
   { title: "Admin", icon: <RiAdminFill /> },
   { title: "Performance", icon: <AiOutlineAreaChart /> },
 ];
+const sales = [{ title: "Overview", icon: <BiLineChart /> }];

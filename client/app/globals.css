@@ -5,18 +5,18 @@
 :root {
   --background-body: #f1f1f1;
   --background-secondary: #ced2cc;
-  --background-tab: #1c4e80;
   --text-color: black;
   --sidebar-w: 250px;
   --sidebar-active-text: white;
+  --background-tab: #20283e;
   --sidebar-line: #484848;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
+    --background-tab: #1c4e80;
     --background-body: #202020;
     --background-secondary: #484848;
-    --background-tab: #20283e;
     --text-color: white;
     --sidebar-active-text: white;
     --sidebar-line: rgb(229 231 235);
@@ -32,25 +32,25 @@
 
 /* Loading */
 .loader {
-	border-top-color: #3498db;
-	-webkit-animation: spinner 1.5s linear infinite;
-	animation: spinner 1.5s linear infinite;
+  border-top-color: #3498db;
+  -webkit-animation: spinner 1.5s linear infinite;
+  animation: spinner 1.5s linear infinite;
 }
 
 @-webkit-keyframes spinner {
-	0% {
-		-webkit-transform: rotate(0deg);
-	}
-	100% {
-		-webkit-transform: rotate(360deg);
-	}
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
 }
 
 @keyframes spinner {
-	0% {
-		transform: rotate(0deg);
-	}
-	100% {
-		transform: rotate(360deg);
-	}
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

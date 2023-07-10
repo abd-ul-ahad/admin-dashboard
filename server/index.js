@@ -5,8 +5,14 @@ import cors from "cors";
 import mongoose from "mongoose";
 import helmet from "helmet";
 import morgan from "morgan";
-import { geoRoutes, productsRoutes } from "./routes/index.js";
 
+// Routes
+import { default as geoRoutes } from "./routes/geography.js";
+import { default as productsRoutes } from "./routes/Products.js";
+import { default as salesRoutes } from "./routes/sales.js";
+
+import OverallStat from "./models/overallStat.js";
+import { dataOverallStat } from "./data/index.js";
 // CONFIGURATIONS
 config();
 
@@ -23,6 +29,7 @@ app.use(bodyParser.urlencoded({ extended: "false" }));
 // SETTING UP ROUTES
 app.use("/api/v1/geography", geoRoutes);
 app.use("/api/v1/product", productsRoutes);
+app.use("/api/v1/sales", salesRoutes);
 
 // MONGOOSE SETUP
 const PORT = process.env.PORT || 9000;

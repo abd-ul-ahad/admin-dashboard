@@ -18,7 +18,24 @@ const Geography = () => {
       fetch("http://localhost:8080/api/v1/geography")
         .then((resp) => resp.json())
         .then((data) => {
-          setGeoData(data);
+          const mappedLocations = data.reduce(
+            (acc: any, { country }: { country: string }) => {
+              if (!acc[country]) {
+                acc[country] = 0;
+              }
+              acc[country]++;
+              return acc;
+            },
+            {}
+          );
+
+          const formattedLocations = Object.entries(mappedLocations).map(
+            ([country, count]) => {
+              return { id: country, value: Number(count) };
+            }
+          );
+
+          setGeoData(formattedLocations);
           resolve();
         })
         .catch((error) => {
@@ -40,11 +57,12 @@ const Geography = () => {
   }, []);
 
   return (
-    <div className="h-screen flex justify-center items-center py-2 flex-col ">
+    <div className="h-screen">
       <div className="w-full text-[var(--text-color)] py-2">
         <h2 className="text-2xl font-bold mb-1">GEOGRAPHY</h2>
         <p className="text-sm">Find where your users are located</p>
       </div>
+
       {geoData === null ? (
         <Loading />
       ) : (
@@ -99,7 +117,7 @@ const Geography = () => {
               anchor: "bottom-right",
               direction: "column",
               justify: true,
-              translateX: -78,
+              translateX: -50,
               translateY: -155,
               itemsSpacing: 0,
               itemWidth: 94,
