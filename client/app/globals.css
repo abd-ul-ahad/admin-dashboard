@@ -9,6 +9,7 @@
   --text-color: black;
   --sidebar-w: 250px;
   --sidebar-active-text: white;
+  --sidebar-line: #484848;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,6 +19,7 @@
     --background-tab: #20283e;
     --text-color: white;
     --sidebar-active-text: white;
+    --sidebar-line: rgb(229 231 235);
   }
 }
 
@@ -25,5 +27,30 @@
   padding: 0;
   margin: 0;
   scroll-behavior: smooth;
-  box-sizing: border-box;
+  box-sizing: border-box !important;
+}
+
+/* Loading */
+.loader {
+	border-top-color: #3498db;
+	-webkit-animation: spinner 1.5s linear infinite;
+	animation: spinner 1.5s linear infinite;
+}
+
+@-webkit-keyframes spinner {
+	0% {
+		-webkit-transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+@keyframes spinner {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }

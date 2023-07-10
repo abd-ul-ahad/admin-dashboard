@@ -3,14 +3,30 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 
 // Define a type for the slice state
 interface UserState {
-  firstName: string;
-  lastName: string;
+  userId: string;
+  name: string;
+  email: string;
+  city: string;
+  state: string;
+  country: string;
+  occupation: string;
+  phoneNumber: string;
+  role: string;
+  token: string | null;
 }
 
 // Define the initial state using that type
 const initialState: UserState = {
-  firstName: "Abdul Ahad",
-  lastName: "",
+  userId: "",
+  name: "Abdul Ahad",
+  email: "",
+  city: "",
+  state: "",
+  country: "",
+  occupation: "",
+  phoneNumber: "",
+  role: "",
+  token: null,
 };
 
 export const userSlice = createSlice({

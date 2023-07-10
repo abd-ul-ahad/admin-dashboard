@@ -43,7 +43,7 @@ export default function Sidebar({
           </div>
 
           <div className="flex justify-center items-start flex-col">
-            <p className="text-xs pl-2 pb-1">Client Facing</p>
+            <p className="text-xs pl-2 pb-1 text-[var(--sidebar-line)]">Client Facing</p>
             <ul className="w-full">
               {clientFacing.map((e, i) => (
                 <li
@@ -61,7 +61,7 @@ export default function Sidebar({
             </ul>
           </div>
           <div className="flex justify-center items-start flex-col">
-            <p className="text-xs pl-2 pb-1">Management</p>
+            <p className="text-xs pl-2 pb-1 text-[var(--sidebar-line)]">Management</p>
             <ul className="w-full">
               {management.map((e, i) => (
                 <li
@@ -81,7 +81,7 @@ export default function Sidebar({
         </div>
       </div>
 
-      <div className="w-full ">
+      {/* <div className="w-full pt-3" style={{ borderTop: `0.7px solid grey` }}>
         <div
           onClick={() => handleTabClick(8)}
           className={`${
@@ -101,11 +101,11 @@ export default function Sidebar({
             }}
           />
           <div className="flex justify-center items-start flex-col">
-            <p className="text-sm">{user.firstName}</p>
-            <p className="text-xs">Admin</p>
+            <p className="text-sm">{user.name}</p>
+            <p className="text-xs text-[var(--sidebar-line)]">Admin</p>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

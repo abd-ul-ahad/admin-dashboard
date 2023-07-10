@@ -1,4 +1,6 @@
 import { SlSettings } from "react-icons/sl";
+import { AiOutlineReload } from "react-icons/ai";
+
 const Navbar = () => {
   return (
     <div className="flex justify-between items-center md:px-9 px-2 py-1">
@@ -10,6 +12,9 @@ const Navbar = () => {
         />
       </div>
       <div className="flex justify-end items-center">
+        <button className="px-3 py-1">
+          <AiOutlineReload className="text-[var(--text-color)]" size={21} />
+        </button>
         <button className="px-3 py-1">
           <SlSettings className="text-[var(--text-color)]" size={21} />
         </button>

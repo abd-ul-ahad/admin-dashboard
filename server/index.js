@@ -5,6 +5,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 import helmet from "helmet";
 import morgan from "morgan";
+import { geoRoutes, productsRoutes } from "./routes/index.js";
 
 // CONFIGURATIONS
 config();
@@ -19,14 +20,20 @@ app.use(morgan("common"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: "false" }));
 
+// SETTING UP ROUTES
+app.use("/api/v1/geography", geoRoutes);
+app.use("/api/v1/product", productsRoutes);
+
 // MONGOOSE SETUP
 const PORT = process.env.PORT || 9000;
+
+// Connecting MONGOOSE
 mongoose
   .connect(process.env.MONGODB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(() => {
+  .then(async () => {
     app.listen(PORT, () => console.log(`Server is started ${PORT}`));
   })
   .catch((e) => console.log(e));

@@ -2,6 +2,7 @@
 import Navbar from "@/Components/dashboard/Components/Navbar";
 import Sidebar from "@/Components/dashboard/Components/Sidebar";
 import { useState } from "react";
+import Geography from "@/Components/dashboard/Components/Geography";
 
 export default function Dashboard() {
   const [tabI, setTabI] = useState<number>(
@@ -18,13 +19,14 @@ export default function Dashboard() {
   6 - Performance
   7 - Profile
   */
+
   return (
     <div>
       <div className="flex">
         <Sidebar tabI={tabI} setTabI={setTabI} />
         <div className="w-full">
           <Navbar />
-          <div></div>
+          <div>{tabI === 4 ? <Geography /> : null}</div>
         </div>
       </div>
     </div>
