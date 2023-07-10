@@ -36,10 +36,13 @@ const PORT = process.env.PORT || 9000;
 
 // Connecting MONGOOSE
 mongoose
-  .connect(process.env.MONGODB_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(
+    "mongodb+srv://user1:tYFOCuD4YlLN4YQB@cluster0.v62c6yc.mongodb.net/",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
   .then(async () => {
     app.listen(PORT, () => console.log(`Server is started ${PORT}`));
   })
