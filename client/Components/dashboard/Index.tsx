@@ -6,9 +6,7 @@ import Geography from "@/Components/dashboard/Components/Geography";
 import Overview from "./Components/Overview";
 
 export default function Dashboard() {
-  const [tabI, setTabI] = useState<number>(
-    Number(localStorage?.getItem("__index__tab_!")) || 0
-  );
+  const [tabI, setTabI] = useState<number>(0);
 
   /*
   0 - Dashboard

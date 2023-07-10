@@ -45,7 +45,7 @@ const Overview = () => {
 
   const callApi = () => {
     return new Promise<void>((resolve, reject) => {
-      fetch("http://localhost:8080/api/v1/sales/")
+      fetch("https://admin-dashboard-khaki-seven.vercel.app/api/v1/sales")
         .then((resp) => resp.json())
         .then((data: ApiResponse) => {
           setOverviewData(data);

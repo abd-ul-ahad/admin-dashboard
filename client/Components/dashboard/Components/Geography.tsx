@@ -15,7 +15,7 @@ const Geography = () => {
 
   const callApi = () => {
     return new Promise<void>((resolve, reject) => {
-      fetch("http://localhost:8080/api/v1/geography")
+      fetch("https://admin-dashboard-khaki-seven.vercel.app/api/v1/geography")
         .then((resp) => resp.json())
         .then((data) => {
           const mappedLocations = data.reduce(
